@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubActivity">
+
+    <TextView
+        android:id="@+id/textView_in_Sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        app:layout_constraintRight_toRightOf="@id/edit_text"
+        app:layout_constraintTop_toBottomOf="@id/edit_text"
+        android:padding="20dp"
+        />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:maxLength="100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_in_Sub"
+        android:padding="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/photo_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:contentDescription="PHOTO"
+        app:layout_constraintTop_toBottomOf="@id/edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/tweet_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tweetする"
+        app:layout_constraintBottom_toTopOf="@id/delete_button_in_sub"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        android:backgroundTint="#00ACEE"
+        />
+    <Button
+        android:id="@+id/delete_button_in_sub"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="このデータを消去する"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        android:backgroundTint="#EF4123"
+        />
+    <Button
+        android:id="@+id/register_button_in_sub"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="保存する"
+        app:layout_constraintBottom_toTopOf="@id/tweet_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        />
+
+    <TextView
+        android:id="@+id/smilescore_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/image_button_smile"
+        app:layout_constraintLeft_toLeftOf="@id/image_button_smile"
+        app:layout_constraintRight_toRightOf="@id/image_button_smile"
+        android:layout_margin="10dp"
+        android:textSize="12dp"
+        />
+    <TextView
+        android:id="@+id/sadscore_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/image_button_sad"
+        app:layout_constraintLeft_toLeftOf="@id/image_button_sad"
+        app:layout_constraintRight_toRightOf="@id/image_button_sad"
+        android:layout_margin="10dp"
+        android:textSize="12dp"
+        />
+    <TextView
+        android:id="@+id/angryscore_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/image_button_angry"
+        app:layout_constraintLeft_toLeftOf="@id/image_button_angry"
+        app:layout_constraintRight_toRightOf="@id/image_button_angry"
+        android:layout_margin="10dp"
+        android:textSize="12dp"
+        />
+
+    <ImageButton
+        android:id="@+id/image_button_smile"
+        android:src="@drawable/change_smile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:background="#F6EFAD"
+        app:layout_constraintBottom_toTopOf="@id/register_button_in_sub"
+        app:layout_constraintRight_toLeftOf="@id/image_button_sad"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:padding="10dp" />
+
+
+    <ImageButton
+        android:id="@+id/image_button_sad"
+        android:src="@drawable/change_sad"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:background="#ADC6F6"
+        app:layout_constraintBottom_toTopOf="@id/register_button_in_sub"
+        app:layout_constraintRight_toLeftOf="@id/image_button_angry"
+        app:layout_constraintLeft_toRightOf="@id/image_button_smile"
+        android:padding="10dp"
+        android:layout_margin="10dp" />
+
+    <ImageButton
+        android:id="@+id/image_button_angry"
+        android:src="@drawable/change_angry"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:background="#F6ADB4"
+        app:layout_constraintBottom_toTopOf="@id/register_button_in_sub"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/image_button_sad"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
