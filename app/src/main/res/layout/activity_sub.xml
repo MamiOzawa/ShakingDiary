@@ -59,7 +59,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_margin="10dp"
         android:padding="12dp"
-        android:backgroundTint="#00ACEE"
+        android:backgroundTint="@color/twitter"
         />
     <Button
         android:id="@+id/delete_button_in_sub"
@@ -71,7 +71,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_margin="10dp"
         android:padding="12dp"
-        android:backgroundTint="#EF4123"
+        android:backgroundTint="@color/red"
         />
     <Button
         android:id="@+id/register_button_in_sub"

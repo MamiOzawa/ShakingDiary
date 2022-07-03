@@ -2,6 +2,7 @@ package jp.ac.titech.itpro.sdl.shakingdiary;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -91,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
         // 日記登録ボタン
         register_button = this.findViewById(R.id.register_button_in_main);
         register_button.setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, SubActivity.class);
-                intent.putExtra("Year", year); intent.putExtra("Month", month); intent.putExtra("Date", date);
-                new DateDataGetAsyncTask(db,intent).execute();
+            Intent intent = new Intent(MainActivity.this, SubActivity.class);
+            intent.putExtra("Year", year); intent.putExtra("Month", month); intent.putExtra("Date", date);
+            new DateDataGetAsyncTask(db,intent).execute();
         });
 
         // 折れ線グラフ
@@ -190,23 +191,25 @@ public class MainActivity extends AppCompatActivity {
             //それぞれのスコアをList型に格納
             for(Diary_Entity entity : temp_entities){
                 int x = entity.getDate();
-                smile_values.add(new Entry(x-1, entity.getSmile_score()));
-                sad_values.add(new Entry(x-1, entity.getSad_score()));
-                angry_values.add(new Entry(x-1, entity.getAngry_score()));
+                smile_values.add(new Entry(x-1, entity.getSmile_score().intValue()));
+                sad_values.add(new Entry(x-1, entity.getSad_score().intValue()));
+                angry_values.add(new Entry(x-1, entity.getAngry_score().intValue()));
             }
             //それぞれのスコアをlinechartに格納
             LineDataSet smile = new LineDataSet(smile_values, "SMILE");
             LineDataSet sad = new LineDataSet(sad_values, "SAD");
             LineDataSet angry = new LineDataSet(angry_values, "ANGRY");
             LineDataSet[] linedatasets = {smile, sad, angry};
-            int[] colors = {Color.MAGENTA, Color.BLUE, Color.RED};
+            int[] colors = {Integer.parseInt( "CDC597",16), Integer.parseInt( "5F8EB6",16), Integer.parseInt( "F88787",16)};
             for (int i = 0; i < linedatasets.length; i++) {
                 linedatasets[i].setColor(colors[i]);          // 線の色
+                linedatasets[i].setValueTextColor(Integer.parseInt("37424A",16));
                 linedatasets[i].setCircleColor(colors[i]);    // 座標の色
-                linedatasets[i].setLineWidth(3f);             // 線の太さ 1f~
+//                linedatasets[i].setCircleHoleColor(colors[i]);
+//                linedatasets[i].setLineWidth(3f);             // 線の太さ 1f~
                 linedatasets[i].setCircleRadius(4f);          // 座標の大きさ
                 linedatasets[i].setDrawCircleHole(false);     // 座標を塗りつぶす→false 塗りつぶさない→true
-                linedatasets[i].setValueTextSize(10f);        // データの値を記す。0fで記載なし。floatだから小数点がつく
+                linedatasets[i].setValueTextSize(8f);        // データの値を記す。0fで記載なし。floatだから小数点がつく
                 linedatasets[i].setDrawFilled(true);          // 線の下を塗りつぶすか否か
                 linedatasets[i].setFillColor(colors[i]);      //　塗りつぶしたフィールドの色
 

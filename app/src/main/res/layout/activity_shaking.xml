@@ -57,6 +57,7 @@
         app:layout_constraintBottom_toTopOf="@id/register_button_in_shake"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:backgroundTint="@color/pink"
         android:layout_margin="10dp"
         android:padding="12dp"
         />
